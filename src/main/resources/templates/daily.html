@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>新闻详情</title>
+</head>
+<body>
+    <h1 style="text-align: center">每日新闻</h1>
+    <div style="width: 1000px">
+        <div th:each=" news : ${newsList}">
+            <div th:text="${news.getNewTitle()}"></div>
+            <div th:utext="${news.getNewContent()}"></div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,50 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1/qimo?uesUnicode=true&characterEncoding=utf-8&serverTime=UTC&useSSL=true
+    username: root
+    password: 123456
+  redis:
+    host: localhost
+    port: 6379
+  servlet:
+    multipart:
+      max-file-size: 20MB
+      max-request-size: 100MB
+  thymeleaf:
+    # 配置模板路径
+    prefix: classpath:/templates/
+    # 配置模板后缀名城
+    suffix: .html
+    mode: HTML5
+    encoding: utf-8
+    cache: false
+#  mvc:
+#    # 本地静态资源访问url前缀
+#    static-path-pattern: /**
+#
+#    # 本地静态资源
+#    static-location: file:${web.upload-path}
+#
+##  web:
+##    resources:
+##      static-locations: E://Javaweb/
+#web:
+#  upload-path: E://Javaweb/
+
+server:
+  port: 9999
+mybatis:
+  mapper-locations: classpath:/mapper/*.xml
+  type-aliases-package: com.example.entity
+  configuration:
+    map-underscore-to-camel-case: true
+pagehelper:
+  helper-dialect: mysql
+  params: count=countSql  #为了支持startPage(Object params)方法
+  support-methods-arguments: true #支持通过 Mapper 接口参数来传递分页参数 默认为false
+  reasonable: true # 分页合理化参数，默认值false 页码不为负，不超过总页码
+
+#file:
+#  path: file/**  # 文件访问路径
+#  address: E://Javaweb/  #文件保存路径
